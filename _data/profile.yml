@@ -5,8 +5,8 @@ navbar_name: "Ye Wang"
 positions:
 - logo: /assets/images/badges/KUMarks_Jayhawk.png  # Logo is optional
   name: University of Kansas
-- logo: /assets/images/badges/iie.png  # Logo is optional
-  name: Institute of Information Engineering (IIE), CAS 
+# - logo: /assets/images/badges/iie.png  # Logo is optional
+#   name: Institute of Information Engineering (IIE), CAS 
 
 
 email: "yewang758@gmail.com"
