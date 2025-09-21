@@ -9,7 +9,7 @@ pub:            "Proceedings of the 2024 on ACM SIGSAC Conference on Computer an
 pub_date:       "2024"
 #semantic_scholar_id: 204e3073870fae3d05bcbc2f6a8e263d9b72e776  # use this to retrieve citation count
 abstract: >-
-In this paper, we propose a novel physical adversarial attack against deep face recognition systems, namely Agile (Adversarial Glasses with Infrared LasEr). It generates adjustable, invisible laser perturbations and emits them into the camera CMOS to launch dodging and impersonation attacks against facial biometrics systems. 
+    In this paper, we propose a novel physical adversarial attack against deep face recognition systems, namely Agile (Adversarial Glasses with Infrared LasEr). It generates adjustable, invisible laser perturbations and emits them into the camera CMOS to launch dodging and impersonation attacks against facial biometrics systems. 
 cover:          /assets/images/covers/laser.png
 authors:
   - Ye Wang
