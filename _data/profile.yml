@@ -27,9 +27,9 @@ short_bio: >-
     Specifically, advanced sensor spoofing attacks and defenses in modern machine-learning back-end systems and user-centric scenarios, with emphasis on.
   </p>
   <p>
-1. Human-imperceptible and out-of-band signal spoofing, where subtle sensor manipulations can bypass robust machine-learning models.
-2. Legitimate user-interaction–driven spoofing, exploiting natural signals generated through ordinary user behavior to evade detection.
-3. Integrated side-channel and covert-channel strategies, enabling non-intrusive defenses as well as stealthier, end-to-end attack chains.
+    Human-imperceptible and out-of-band signal spoofing, where subtle sensor manipulations can bypass robust machine-learning models.
+    Legitimate user-interaction–driven spoofing, exploiting natural signals generated through ordinary user behavior to evade detection.
+    Integrated side-channel and covert-channel strategies, enabling non-intrusive defenses as well as stealthier, end-to-end attack chains.
   </p>
 
 portrait_url: /assets/images/photos/portrait.jpg
