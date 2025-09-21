@@ -25,11 +25,13 @@ short_bio: >-
   <p>
     With a strong academic background in both Electrical Engineering and Computer Science, 
     I bring a unique perspective to security research at the intersection of the physical and digital worlds. 
-    Specifically, advanced sensor spoofing attacks and defenses in modern machine-learning back-end systems and user-centric scenarios, with emphasis on.
+    Specifically, advanced sensor spoofing attacks and defenses in modern machine-learning back-end systems and user-centric scenarios.
   </p>
   <p>
     - Human-imperceptible and out-of-band signal spoofing, where subtle sensor manipulations can bypass robust machine-learning models.
+    
     - Legitimate user-interaction–driven spoofing, exploiting natural signals generated through ordinary user behavior to evade detection.
+    
     - Integrated side-channel and covert-channel strategies, enabling non-intrusive defenses as well as stealthier, end-to-end attack chains.
   </p>
 
