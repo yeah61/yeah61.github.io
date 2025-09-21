@@ -7,10 +7,12 @@ date: 2020-01-12 00:01:00 +0800
   <img data-src="{{ 'assets/images/covers/cover1.jpg' | relative_url }}" class="lazy w-100 rounded-xl" src="{{ '/assets/images/empty_300x200.png' | relative_url }}">
 
   <div class="card-img-overlay" style="overflow: scroll; background: rgb(255,255,255,0.8)">
-    <h5 class="card-title">Image Lazyload</h5>
+    <h5 class="card-title">Teaching Experience</h5>
     <p class="card-text">
-      It is highly recommended to use lazyload for images to improve page loading speed, especially for pages with many images.
-      Example code snippet:
+      <li> EECS 268: Programming II </li>
+      <li> EECS 447: Introduction to Database Systems </li>
+      <li> EECS 565: Introduction to Information and Computer Security </li>
+      <li> EECS 569: Computer Forensics </li>
     </p>
     <p class="card-text">
       {% raw %}
