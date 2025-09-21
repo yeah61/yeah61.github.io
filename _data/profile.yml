@@ -28,9 +28,9 @@ short_bio: >-
     Specifically, advanced sensor spoofing attacks and defenses in modern machine-learning back-end systems and user-centric scenarios.
   </p>
   <p>
-    - Human-imperceptible and out-of-band signal spoofing, where subtle sensor manipulations can bypass robust machine-learning models. \n
+    - Human-imperceptible and out-of-band signal spoofing, where subtle sensor manipulations can bypass robust machine-learning models. <br>
     
-    - Legitimate user-interaction–driven spoofing, exploiting natural signals generated through ordinary user behavior to evade detection. \n
+    - Legitimate user-interaction–driven spoofing, exploiting natural signals generated through ordinary user behavior to evade detection. <br>
     
     - Integrated side-channel and covert-channel strategies, enabling non-intrusive defenses as well as stealthier, end-to-end attack chains.
   </p>
@@ -60,6 +60,10 @@ education:
   date: Sep. 2007 - Jul. 2011
 
 experience:
+- name: Institute for Information Science (I2S), KU
+  logo: /assets/images/badges/KUMarks_Jayhawk.png
+  position: Graduate Research Assistant
+  date: Jan. 2020 - present
 - name: Institute of Information Engineering (IIE), CAS
   logo: /assets/images/badges/iie.png
   position: Assistant Research Fellow
