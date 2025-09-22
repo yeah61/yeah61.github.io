@@ -12,6 +12,9 @@ date: 2020-01-12 00:01:00 +0800
         <li> External paper reviewer for CCS ’25.  </li>
         <li> External paper reviewer for the 52nd Annual IEEE/IFIP (2023 DSN) conference.  </li>
         <li> External paper reviewer for the Annual Computer Security Applications Conference (ACSAC) 2023. </li>
+        <li> GenCyber Teacher Camp 2023, Student Volunteer and Teaching Assistant, Funded by NSA and NSF. </li>
+        <li> GEA Research Symposium 2023, Student Judge, University of Kansas</li>
+        <li> Session moderator for EAI SecureComm 2022</li>
     </p>
 </div>
 
