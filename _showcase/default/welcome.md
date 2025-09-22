@@ -5,10 +5,10 @@ date: 2024-01-12 00:01:00 +0800
 ---
 
 <div class="p-4">
-    <h2>Welcome to Showcase!</h2>
+    <h2>More about me</h2>
     <hr />
     <p>
-        Welcome to my showcase, where I share more about my life, work, and projects. I pursue research in security, find resilience in sports, joy in traveling, and passion in teaching
+        Welcome to my showcase, where I share more about my life, work, and projects. I pursue research in security, find resilience in sports, joy in traveling, and passion in teaching.
     </p>
     <p>
         Beyond work, I find strength and resilience in sports, which fuel my determination and keep me fit to keep exploring science for decades to come.
