@@ -23,7 +23,7 @@ orcid: 0009-0002-0450-8939
 short_bio_text_justify: false
 short_bio: >-
   <p>
-    With a strong academic background in both Electrical Engineering and Computer Science, 
+    I am a final year PhD candidate in Computer Science at University of Kansas. With a strong academic background in both Electrical Engineering and Computer Science, 
     I bring a unique perspective to security research at the intersection of the physical and digital worlds. 
     Specifically, advanced sensor spoofing attacks and defenses in modern machine-learning back-end systems and user-centric scenarios.
   </p>
@@ -68,15 +68,23 @@ experience:
   logo: /assets/images/badges/iie.png
   position: Assistant Research Fellow
   date: Mar. 2014 - Dec. 2019
+- name: Institute of Optoelectronics Technology, Beihang University
+  logo: /assets/images/badges/beihang.png
+  position: Graduate Research Assistant
+  date: Sep. 2011 - Mar. 2014
 
 awards:
 - name: DAVID D. and MILDRED H. ROBB AWARD, KU
   date: 2024
 - name: ACM CCS Travel Grant Award, ACM
   date: 2024
-- name: The second prize of the Science and Technology Award
+- name: The second prize of the Science and Technology Award, MIIT(PRC)
   date: 2019
 - name: Excellent Researcher, IIE, CAS
   date: 2018
+- name: Excellent Researcher, 4th department, IIE, CAS
+  date: 2016
+- name: Science and Technology Award, Ministry of Education(PRC)
+  date: 2013
 - name: Graduate Guanghua Scholarship, Beihang University
   date: 2013
