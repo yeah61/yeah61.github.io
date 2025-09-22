@@ -10,7 +10,7 @@ date: 2020-01-12 00:01:00 +0800
     <p>
         <li> Basketball — Top 8 in the Chinese Academy of Sciences (Beijing Division)  </li>
         <li> Badminton — Top 4 in the Chinese Academy of Sciences (Beijing Division)  </li>
-        <li> Table Tennis — Mixed Doubles Champion, Fourth Research Laboratory, Institute of Information Engineering, Chinese Academy of Sciences  </li>
+        <li> Table Tennis — Mixed Doubles Champion, Fourth Research Laboratory, IIE, CAS  </li>
         <li> Swimming </li>
     </p>
 </div>
