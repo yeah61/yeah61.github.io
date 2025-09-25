@@ -89,4 +89,19 @@ div.lazy {
 .email-text {
     font-family: Courier, monospace;
 }
+/* ===== Anchor jump offset + smooth scroll ===== */
+:root {
+  /* keep this in sync with your actual navbar height + top padding */
+  --nav-h: 5rem; /* matches body padding-top: 5.0rem */
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h);
+}
+
+/* If your navbar becomes taller on smaller screens, bump the offset */
+@media (max-width: 576px) {
+  :root { --nav-h: 6.5rem; } /* tweak if your mobile nav wraps */
+}
 
