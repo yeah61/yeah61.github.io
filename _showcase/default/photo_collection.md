@@ -11,5 +11,7 @@ images:
 - src: https://picsum.photos/seed/second22/800/800
   title: CN Travel Map
   desc: cities and national parks.
-
+- src: https://picsum.photos/seed/second22/800/800
+  title: CN Travel Map
+  desc: cities and national parks.
 {% include widgets/carousel.html id=page.id images=page.images height=page.height %}
