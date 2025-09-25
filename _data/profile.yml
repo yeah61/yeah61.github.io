@@ -23,16 +23,12 @@ orcid: 0009-0002-0450-8939
 short_bio_text_justify: false
 short_bio: >-
   <p>
-    I am a final-year PhD candidate in Computer Science at the University of Kansas, advised by <a href="https://ittc.ku.edu/~fli/" target="_blank" rel="noopener noreferrer">Dr. Fengjun Li</a> and <a href="https://www.ittc.ku.edu/~bluo/" target="_blank" rel="noopener noreferrer">Dr. Bo Luo</a>. With a strong academic background in both Electrical Engineering and Computer Science, 
-    I bring a unique perspective to security research at the intersection of the physical and digital worlds. 
-    Specifically, advanced sensor spoofing attacks and defenses in modern machine-learning back-end systems and user-centric scenarios.
+    I am a final-year PhD candidate in Computer Science at the University of Kansas, advised by <a href="https://ittc.ku.edu/~fli/" target="_blank" rel="noopener noreferrer">Dr. Fengjun Li</a> and <a href="https://www.ittc.ku.edu/~bluo/" target="_blank" rel="noopener noreferrer">Dr. Bo Luo</a>. 
+    My research interest lies in system security for modern machine-learning back-end systems and user-centric scenarios.
+    I focus on advanced sensor spoofing attacks and defenses in these platforms, especially human-imperceptible and legitimate user–interaction–driven signals. 
   </p>
   <p>
-    - Human-imperceptible and out-of-band signal spoofing, where subtle sensor manipulations can bypass robust machine-learning models. <br>
-    
-    - Legitimate user-interaction–driven spoofing, exploiting natural signals generated through ordinary user behavior to evade detection. <br>
-    
-    - Integrated side-channel and covert-channel strategies, enabling non-intrusive defenses as well as stealthier, end-to-end attack chains.
+    Before joining KU, I received my B.Eng and M.Eng in Beihang University, supervised by Prof. Xiaxiao Wang. I also worked in the Institute of Information Engineering (IIE), Chinese Academy of Sciences, after graduation.
   </p>
 
 portrait_url: /assets/images/photos/portrait.jpg
