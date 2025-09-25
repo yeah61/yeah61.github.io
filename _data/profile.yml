@@ -23,7 +23,7 @@ orcid: 0009-0002-0450-8939
 short_bio_text_justify: false
 short_bio: >-
   <p>
-    I am a final year PhD candidate in Computer Science at the University of Kansas. With a strong academic background in both Electrical Engineering and Computer Science, 
+    I am a final-year PhD candidate in Computer Science at the University of Kansas, advised by <a href="https://ittc.ku.edu/~fli/" target="_blank" rel="noopener noreferrer">Dr. Fengjun Li</a> and <a href="https://www.ittc.ku.edu/~bluo/" target="_blank" rel="noopener noreferrer">Dr. Bo Luo</a>. With a strong academic background in both Electrical Engineering and Computer Science, 
     I bring a unique perspective to security research at the intersection of the physical and digital worlds. 
     Specifically, advanced sensor spoofing attacks and defenses in modern machine-learning back-end systems and user-centric scenarios.
   </p>
