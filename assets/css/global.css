@@ -105,3 +105,27 @@ html {
   :root { --nav-h: 6.5rem; } /* tweak if your mobile nav wraps */
 }
 
+/* === News card tweaks === */
+
+/* icon alignment + spacing */
+#news i.fas.fa-newspaper {
+  font-size: 0.9rem;   /* slightly smaller */
+  color: #2563eb;      /* your site accent color */
+  margin-right: 6px;
+  flex-shrink: 0;      /* don’t let it shrink on small screens */
+}
+
+/* tighten vertical rhythm between news items */
+#news .media-body > .d-flex {
+  padding: 2px 0;
+}
+
+/* keep the date from wrapping and subtle styling */
+#news .no-break {
+  white-space: nowrap;
+  font-size: 0.85rem;
+  color: #6c757d;  /* muted gray */
+}
+
+
+
