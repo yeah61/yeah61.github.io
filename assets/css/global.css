@@ -112,7 +112,7 @@ html {
   font-size: 0.9rem;   /* slightly smaller */
   color: #2563eb;      /* your site accent color */
   margin-right: 6px;
-  margin-top: 0.45rem;
+  margin-top: 0.4rem;
   flex-shrink: 0;      /* don’t let it shrink on small screens */
 }
 
@@ -126,7 +126,7 @@ html {
   white-space: nowrap;
   font-size: 0.85rem;
   color: #6c757d;  /* muted gray */
-  margin-top: 0.25rem;
+  margin-top: 0.35rem;
 }
 
 
