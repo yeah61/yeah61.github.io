@@ -1,0 +1,268 @@
+---
+layout: none
+permalink: /travel/cn-map/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Travel Map</title>
+
+  <!-- Leaflet core CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  />
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <!-- Leaflet.AwesomeMarkers plugin CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.awesome-markers/dist/leaflet.awesome-markers.css"
+  />
+
+  <style>
+    /* Reset & Body */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7fa;
+      display: flex; flex-direction: column;
+      height: 100vh;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1e90ff 0%, #00bfff 100%);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    /* Map Container */
+    #map {
+      flex: 1;
+    }
+
+    /* Legend Sidebar */
+    .legend {
+      position: absolute;
+      top: 80px;
+      right: 20px;
+      width: 180px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      line-height: 1.6;
+      z-index: 1000;
+    }
+    .legend h4 {
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.25rem;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .legend-item.inactive {
+      opacity: 0.4;
+    }
+    .legend-color {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      margin-right: 0.6rem;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>🗺️ My Travel Map</header>
+  <div id="map"></div>
+
+  <aside class="legend">
+    <h4>Legend</h4>
+    <div class="legend-item" data-group="visited-city">
+      <div class="legend-color" style="background:darkblue;"></div> Visited City
+    </div>
+    <div class="legend-item" data-group="visited-park">
+      <div class="legend-color" style="background:darkgreen;"></div> Visited Park
+    </div>
+    <div class="legend-item" data-group="wishlist-city">
+      <div class="legend-color" style="background:blue;"></div> Wishlist City
+    </div>
+    <div class="legend-item" data-group="wishlist-park">
+      <div class="legend-color" style="background:green;"></div> Wishlist Park
+    </div>
+  </aside>
+
+  <!-- Leaflet core JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- Leaflet.AwesomeMarkers plugin JS -->
+  <script src="https://unpkg.com/leaflet.awesome-markers/dist/leaflet.awesome-markers.js"></script>
+
+  <script>
+    // ====== Data: visited & wishlist ======
+    const visited = [
+       { type: 'city', name: 'Harbin, Heilongjiang', coords: [45.8038, 126.5349] },
+       { type: 'city', name: 'Changchun, Jilin', coords: [43.8160, 125.3235] },
+       { type: 'city', name: 'Jilin City, Jilin', coords: [43.8404, 126.5499] },
+       { type: 'city', name: 'Shenyang, Liaoning', coords: [41.8057, 123.4315] },
+       { type: 'city', name: 'Anshan, Liaoning', coords: [41.1077, 122.9941] },
+       { type: 'city', name: 'Yingkou, Liaoning', coords: [40.6659, 122.2294] },
+       { type: 'city', name: 'Dalian, Liaoning', coords: [38.9140, 121.6147] },
+       { type: 'city', name: 'Chengde, Hebei', coords: [40.9728, 117.9392] },
+  { type: 'city', name: 'Qinhuangdao, Hebei', coords: [39.9354, 119.6005] },
+  { type: 'city', name: 'Tangshan, Hebei', coords: [39.6305, 118.1803] },
+  { type: 'city', name: 'Beijing', coords: [39.9042, 116.4074] },
+  { type: 'city', name: 'Tianjin', coords: [39.3434, 117.3616] },
+  { type: 'city', name: 'Langfang, Hebei', coords: [39.5086, 116.7075] },
+  { type: 'city', name: 'Baoding, Hebei', coords: [38.8582, 115.4845] },
+  { type: 'city', name: 'Shijiazhuang, Hebei', coords: [38.0428, 114.5149] },
+  { type: 'city', name: 'Datong, Shanxi', coords: [40.0768, 113.3005] },
+  { type: 'city', name: 'Taiyuan, Shanxi', coords: [37.8706, 112.5489] },
+  { type: 'city', name: 'Hohhot, Inner Mongolia', coords: [40.8426, 111.7492] },
+  { type: 'city', name: 'Jinan, Shandong', coords: [36.6683, 117.0249] },
+  { type: 'city', name: 'Qingdao, Shandong', coords: [36.0671, 120.3826] },
+  { type: 'city', name: 'Xuchang, Henan', coords: [34.0267, 113.8231] },
+  { type: 'city', name: 'Zhengzhou, Henan', coords: [34.7466, 113.6254] },
+  { type: 'city', name: 'Luoyang, Henan', coords: [34.6197, 112.4540] },
+  { type: 'city', name: 'Kaifeng, Henan', coords: [34.7986, 114.3076] },
+  { type: 'city', name: 'Jiaozuo, Henan', coords: [35.2394, 113.2383] },
+  { type: 'city', name: 'Huai\'an, Jiangsu', coords: [33.4996, 119.0153] },
+  { type: 'city', name: 'Nanjing, Jiangsu', coords: [32.0603, 118.7969] },
+  { type: 'city', name: 'Suzhou, Jiangsu', coords: [31.2989, 120.5853] },
+  { type: 'city', name: 'Shanghai', coords: [31.2304, 121.4737] },
+  { type: 'city', name: 'Hangzhou, Zhejiang', coords: [30.2741, 120.1551] },
+  { type: 'city', name: 'Ma\'anshan, Anhui', coords: [31.7055, 118.5079] },
+  { type: 'city', name: 'Wuhu, Anhui', coords: [31.3529, 118.4337] },
+  { type: 'city', name: 'Jiujiang, Jiangxi', coords: [29.7053, 115.8922] },
+  { type: 'city', name: 'Xiamen, Fujian', coords: [24.4798, 118.0895] },
+  { type: 'city', name: 'Shantou, Guangdong', coords: [23.3541, 116.6819] },
+  { type: 'city', name: 'Shenzhen, Guangdong', coords: [22.5431, 114.0579] },
+  { type: 'city', name: 'Guangzhou, Guangdong', coords: [23.1291, 113.2644] },
+  { type: 'city', name: 'Jiangmen, Guangdong', coords: [22.5808, 113.0815] },
+  { type: 'city', name: 'Foshan, Guangdong', coords: [23.0215, 113.1214] },
+  { type: 'city', name: 'Hong Kong', coords: [22.3193, 114.1694] },
+  { type: 'city', name: 'Macau', coords: [22.1987, 113.5439] },
+  { type: 'city', name: 'Yangjiang, Guangdong', coords: [21.8575, 111.9570] },
+  { type: 'city', name: 'Haikou, Hainan', coords: [20.0440, 110.1999] },
+  { type: 'city', name: 'Sanya, Hainan', coords: [18.2528, 109.5119] },
+  { type: 'city', name: 'Beihai, Guangxi', coords: [21.4818, 109.0956] },
+  { type: 'city', name: 'Nanning, Guangxi', coords: [22.8170, 108.3669] },
+  { type: 'city', name: 'Wuhan, Hubei', coords: [30.5928, 114.3055] },
+  { type: 'city', name: 'Xiangyang, Hubei', coords: [32.0090, 112.1228] },
+  { type: 'city', name: 'Shiyan, Hubei', coords: [32.6290, 110.7879] },
+  { type: 'city', name: 'Chongqing', coords: [29.5630, 106.5516] },
+  { type: 'city', name: 'Shizhu County, Chongqing', coords: [30.1993, 108.2047] },
+  { type: 'city', name: 'Changsha, Hunan', coords: [28.2282, 112.9388] },
+  { type: 'city', name: 'Chengdu, Sichuan', coords: [30.5728, 104.0668] },
+  { type: 'city', name: 'Kunming, Yunnan', coords: [25.0389, 102.7183] },
+  { type: 'city', name: 'Dali, Yunnan', coords: [25.6000, 100.2330] },
+  { type: 'city', name: 'Mangshi, Yunnan', coords: [24.4333, 98.5833] },
+  { type: 'city', name: 'Shangri-La, Yunnan', coords: [27.7936, 99.7045] },
+  { type: 'city', name: 'Guiyang, Guizhou', coords: [26.6470, 106.6302] },
+  { type: 'city', name: 'Xi\'an, Shaanxi', coords: [34.3416, 108.9398] },
+  { type: 'city', name: 'Yinchuan, Ningxia', coords: [38.4872, 106.2309] },
+  { type: 'city', name: 'Guyuan, Ningxia', coords: [36.0215, 106.2236] },
+  { type: 'city', name: 'Lanzhou, Gansu', coords: [36.0611, 103.8343] },
+  { type: 'city', name: 'Xining, Qinghai', coords: [36.6171, 101.7782] },
+  { type: 'city', name: 'Qingyang, Gansu', coords: [35.7097, 107.6459] },
+  { type: 'city', name: 'Urumqi, Xinjiang', coords: [43.8256, 87.6168] },
+  { type: 'city', name: 'Lhasa, Tibet', coords: [29.6520, 91.1721] },
+  { type: 'city', name: 'Ngari, Tibet', coords: [32.5032, 80.1055] },
+  { type: 'city', name: 'Hefei, Anhui', coords: [31.8206, 117.2272] },
+      { type: 'park', name: 'Tallgrass Prairie National Preserve', coords: [38.3921, -96.5497]}
+    ];
+
+    const wishlist = [
+      { type: 'city', name: 'Fuzhou, Fujian', coords: [26.0745, 119.2965] },
+      { type: 'city', name: 'Nanchang, Jiangxi', coords: [28.6820, 115.8579] },
+      { type: 'city', name: 'Liuzhou, Guangxi', coords: [24.3264, 109.4281] },
+      { type: 'city', name: 'Guilin, Guangxi', coords: [25.2736, 110.2900] },
+      { type: 'city', name: 'Yanji, Jilin', coords: [42.9075, 129.5077] },
+      { type: 'city', name: 'Yangzhou, Jiangsu', coords: [32.3942, 119.4129] },
+      { type: 'city', name: 'Quanzhou, Fujian', coords: [24.8741, 118.6759] },
+      { type: 'city', name: 'Yantai, Shandong', coords: [37.4638, 121.4479] },
+      { type: 'city', name: 'Xishuangbanna, Yunnan', coords: [22.0090, 100.7974] },
+      { type: 'city', name: 'Dandong, Liaoning', coords: [40.1243, 124.3949] },
+      { type: 'park', name: 'Zion NP', coords: [37.2982, -113.0263] },
+    ];
+
+    // Initialize map
+    const map = L.map('map', { zoomControl: false }).setView([39.8283, -98.5795], 4);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+    L.control.zoom({ position: 'topleft' }).addTo(map);
+
+    // Define marker icons
+    const icons = {
+      visited: {
+        city: L.AwesomeMarkers.icon({ icon: 'city', prefix: 'fa', markerColor: 'darkblue' }),
+        park: L.AwesomeMarkers.icon({ icon: 'tree', prefix: 'fa', markerColor: 'darkgreen' })
+      },
+      wishlist: {
+        city: L.AwesomeMarkers.icon({ icon: 'city', prefix: 'fa', markerColor: 'blue' }),
+        park: L.AwesomeMarkers.icon({ icon: 'tree', prefix: 'fa', markerColor: 'green' })
+      }
+    };
+
+    // 1) Create the four layer groups
+    const layerGroups = {
+      'visited-city':  L.layerGroup(),
+      'visited-park':  L.layerGroup(),
+      'wishlist-city': L.layerGroup(),
+      'wishlist-park': L.layerGroup(),
+    };
+
+    // 2) Populate each group
+    function addMarkers(list, category) {
+      list.forEach(item => {
+        const key = `${category}-${item.type}`;
+        const marker = L.marker(item.coords, { icon: icons[category][item.type] })
+          .bindPopup(`<strong>${item.name}</strong>`);
+        layerGroups[key].addLayer(marker);
+      });
+    }
+    addMarkers(visited,  'visited');
+    addMarkers(wishlist, 'wishlist');
+
+    // 3) Add all groups to map by default
+    Object.values(layerGroups).forEach(group => group.addTo(map));
+
+    // 4) Fit map to all points
+    const allCoords = [...visited, ...wishlist].map(p => p.coords);
+    if (allCoords.length) {
+      map.fitBounds(allCoords, { padding: [40, 40] });
+    }
+
+    // 5) Legend click handling
+    document.querySelectorAll('.legend-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const key = item.dataset.group;
+        const group = layerGroups[key];
+        if (map.hasLayer(group)) {
+          map.removeLayer(group);
+          item.classList.add('inactive');
+        } else {
+          map.addLayer(group);
+          item.classList.remove('inactive');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

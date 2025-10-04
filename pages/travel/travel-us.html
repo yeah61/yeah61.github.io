@@ -1,0 +1,279 @@
+---
+layout: none
+permalink: /travel/us-map/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Travel Map</title>
+
+  <!-- Leaflet core CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  />
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <!-- Leaflet.AwesomeMarkers plugin CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.awesome-markers/dist/leaflet.awesome-markers.css"
+  />
+
+  <style>
+    /* Reset & Body */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7fa;
+      display: flex; flex-direction: column;
+      height: 100vh;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1e90ff 0%, #00bfff 100%);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    /* Map Container */
+    #map {
+      flex: 1;
+    }
+
+    /* Legend Sidebar */
+    .legend {
+      position: absolute;
+      top: 80px;
+      right: 20px;
+      width: 180px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      line-height: 1.6;
+      z-index: 1000;
+    }
+    .legend h4 {
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.25rem;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .legend-item.inactive {
+      opacity: 0.4;
+    }
+    .legend-color {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      margin-right: 0.6rem;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>🗺️ My Travel Map</header>
+  <div id="map"></div>
+
+  <aside class="legend">
+    <h4>Legend</h4>
+    <div class="legend-item" data-group="visited-city">
+      <div class="legend-color" style="background:darkblue;"></div> Visited City
+    </div>
+    <div class="legend-item" data-group="visited-park">
+      <div class="legend-color" style="background:darkgreen;"></div> Visited Park
+    </div>
+    <div class="legend-item" data-group="wishlist-city">
+      <div class="legend-color" style="background:blue;"></div> Wishlist City
+    </div>
+    <div class="legend-item" data-group="wishlist-park">
+      <div class="legend-color" style="background:green;"></div> Wishlist Park
+    </div>
+  </aside>
+
+  <!-- Leaflet core JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- Leaflet.AwesomeMarkers plugin JS -->
+  <script src="https://unpkg.com/leaflet.awesome-markers/dist/leaflet.awesome-markers.js"></script>
+
+  <script>
+    // ====== Data: visited & wishlist ======
+    const visited = [
+      { type: 'city', name: 'New York, NY', coords: [40.7128, -74.0060] },
+      { type: 'city', name: 'Fargo, ND', coords: [46.8772, -96.7898] },
+      { type: 'city', name: 'Duluth, MN', coords: [46.7867, -92.1005] },
+      { type: 'city', name: 'Minneapolis, MN', coords: [44.9778, -93.2650] },
+      { type: 'city', name: 'Sioux Falls, SD', coords: [43.5446, -96.7311] },
+      { type: 'city', name: 'Omaha, NE', coords: [41.2565, -95.9345] },
+      { type: 'city', name: 'Kansas City, MO', coords: [39.0997, -94.5786] },
+      { type: 'city', name: 'St. Louis, MO', coords: [38.6270, -90.1994] },
+      { type: 'city', name: 'Oklahoma City, OK', coords: [35.4676, -97.5164] },
+      { type: 'city', name: 'Dallas, TX', coords: [32.7767, -96.7970] },
+      { type: 'city', name: 'Memphis, TN', coords: [35.1495, -90.0490] },
+      { type: 'city', name: 'Houston, TX', coords: [29.7604, -95.3698] },
+      { type: 'city', name: 'Austin, TX', coords: [30.2672, -97.7431] },
+      { type: 'city', name: 'San Antonio, TX', coords: [29.4241, -98.4936] },
+      { type: 'city', name: 'New Orleans, LA', coords: [29.9511, -90.0715] },
+      { type: 'city', name: 'Denver, CO', coords: [39.7392, -104.9903] },
+      { type: 'city', name: 'Salt Lake City, UT', coords: [40.7608, -111.8910] },
+      { type: 'city', name: 'San Francisco, CA', coords: [37.7749, -122.4194] },
+      { type: 'city', name: 'Los Angeles, CA', coords: [34.0522, -118.2437] },
+      { type: 'city', name: 'Washington, DC', coords: [38.9072, -77.0369] },
+      { type: 'city', name: 'Seattle, WA', coords: [47.6062, -122.3321] },
+      { type: 'city', name: 'Rapid City, SD', coords: [44.0805, -103.2310] },
+      { type: 'city', name: 'Wichita, KS', coords: [37.6872, -97.3301] },
+      { type: 'city', name: 'Cody, WY', coords: [44.5263, -109.0565] },
+      { type: 'city', name: 'Green River, UT', coords: [38.9923, -110.1645] },
+      { type: 'city', name: 'Monterey, CA', coords: [36.6002, -121.8947] },
+      { type: 'city', name: 'Joplin, MO', coords: [37.0842, -94.5133] },
+      { type: 'city', name: 'Williamsburg, VA', coords: [37.2707, -76.7075] },
+      { type: 'city', name: 'Portland, ME', coords: [43.6591, -70.2568] },
+      { type: 'city', name: 'Cut Bank, MT', coords: [48.6339, -112.3318] },
+      { type: 'city', name: 'Gatlinburg, TN', coords: [35.7143, -83.5105] },
+      { type: 'city', name: 'Topeka, KS',       coords: [39.0483,  -95.6770] },
+      { type: 'city', name: 'Lawrence, KS',    coords: [38.9717,  -95.2353] },
+      { type: 'city', name: 'Wamego, KS',      coords: [39.1995,  -96.2853] },
+      { type: 'park', name: 'Acadia NP', coords: [44.3386, -68.2733] },
+      { type: 'park', name: 'Arches NP', coords: [38.7331, -109.5925] },
+      { type: 'park', name: 'Badlands NP', coords: [43.8554, -102.3397] },
+      { type: 'park', name: 'Canyonlands NP', coords: [38.2727, -109.8783] },
+      { type: 'park', name: 'Gateway Arch NM', coords: [38.6247, -90.1848] },
+      { type: 'park', name: 'Glacier NP', coords: [48.7596, -113.7870] },
+      { type: 'park', name: 'Grand Teton NP', coords: [43.7904, -110.6818] },
+      { type: 'park', name: 'Great Smoky Mountains NP', coords: [35.6118, -83.4895] },
+      { type: 'park', name: 'Hot Springs NP', coords: [34.5131, -93.0545] },
+      { type: 'park', name: 'Mount Rainier NP', coords: [46.8797, -121.7269] },
+      { type: 'park', name: 'North Cascades NP', coords: [48.7710, -121.2985] },
+      { type: 'park', name: 'Olympic NP', coords: [47.8021, -123.6044] },
+      { type: 'park', name: 'Rocky Mountain NP', coords: [40.3428, -105.6836] },
+      { type: 'park', name: 'Sequoia NP', coords: [36.4864, -118.5658] },
+      { type: 'park', name: 'Shenandoah NP', coords: [38.5989, -78.3500] },
+      { type: 'park', name: 'Theodore Roosevelt NP', coords: [46.9691, -103.5387] },
+      { type: 'park', name: 'Yellowstone NP', coords: [44.4280, -110.5885] },
+      { type: 'park', name: 'Yosemite NP', coords: [37.8651, -119.5383] },
+      { type: 'park', name: 'Mount Rushmore National Memorial', coords: [43.8791, -103.4591]},
+      { type: 'park', name: 'Tallgrass Prairie National Preserve', coords: [38.3921, -96.5497]}
+    ];
+
+    const wishlist = [
+      { type: 'city', name: 'San Diego, CA', coords: [32.7157, -117.1611] },
+      { type: 'city', name: 'Albuquerque, NM', coords: [35.0844, -106.6504] },
+      { type: 'city', name: 'Orlando, FL', coords: [28.5383, -81.3792] },
+      { type: 'city', name: 'Miami, FL', coords: [25.7617, -80.1918] },
+      { type: 'city', name: 'Chicago, IL', coords: [41.8781, -87.6298] },
+      { type: 'city', name: 'Boston, MA', coords: [42.3601, -71.0589] },
+      { type: 'city', name: 'Las Vegas, NV', coords: [36.1699, -115.1398] },
+      { type: 'city', name: 'Philadelphia, PA', coords: [39.9526, -75.1652] },
+      { type: 'city', name: 'Baltimore, MD', coords: [39.2904, -76.6122] },
+      { type: 'city', name: 'Buffalo, NY', coords: [42.8864, -78.8784] },
+      { type: 'city', name: 'Nashville, TN', coords: [36.1627, -86.7816] },
+      { type: 'city', name: 'Atlanta, GA', coords: [33.7490, -84.3880] },
+      { type: 'city', name: 'Phoenix, AZ', coords: [33.4484, -112.0740] },
+      { type: 'city', name: 'Key West, FL',    coords: [24.5551,  -81.7800] },
+      { type: 'city', name: 'Tampa, FL',       coords: [27.9506,  -82.4572] },
+      { type: 'city', name: 'Napa, CA',        coords: [38.2975, -122.2869] },
+      { type: 'city', name: 'Portland, OR',    coords: [45.5152, -122.6784] },
+      { type: 'city', name: "Anchorage, AK", coords: [61.2181, -149.9003] },
+      { type: 'park', name: 'Zion NP', coords: [37.2982, -113.0263] },
+      { type: 'park', name: 'Grand Canyon NP', coords: [36.1069, -112.1129] },
+      { type: 'park', name: 'Bryce Canyon NP', coords: [37.5930, -112.1871] },
+      { type: 'park', name: 'Capitol Reef NP', coords: [38.3671, -111.2615] },
+      { type: 'park', name: 'Death Valley NP', coords: [36.5054, -117.0794] },
+      { type: 'park', name: 'Joshua Tree NP', coords: [33.8734, -115.9010] },
+      { type: 'park', name: 'Mammoth Cave NP', coords: [37.1870, -86.1005] },
+      { type: 'park', name: 'Carlsbad Caverns NP', coords: [32.1479, -104.5567] },
+      { type: 'park', name: 'Denali NP', coords: [63.1148, -151.1926] },
+      { type: 'park', name: 'Kenai Fjords NP', coords: [59.9142, -149.6510] },
+      { type: 'park', name: 'Lake Tahoe',      coords: [39.0968, -120.0324] },
+      { type: 'park', name: 'Antelope Canyon', coords: [36.8619, -111.3743] },
+      { type: 'park', name: 'Monument Valley', coords: [36.9989, -110.0985] },
+      { type: 'park', name: 'Horseshoe Bend',  coords: [36.8790, -111.5100] },
+      { type: 'park', name: 'The Wave (Coyote Buttes North)', coords: [36.9950, -112.0066]},
+      { type: 'park', name: "Crater Lake NP", coords: [42.8684, -122.1685] },
+      { type: 'park', name: "Lassen Volcanic NP", coords: [40.4977, -121.4207] },
+      { type: 'park', name: "Redwood NP", coords: [41.2132, -124.0046] },
+      { type: 'park', name: "Big Bend NP", coords: [29.1275, -103.2425] }
+    ];
+
+    // Initialize map
+    const map = L.map('map', { zoomControl: false }).setView([39.8283, -98.5795], 4);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+    L.control.zoom({ position: 'topleft' }).addTo(map);
+
+    // Define marker icons
+    const icons = {
+      visited: {
+        city: L.AwesomeMarkers.icon({ icon: 'city', prefix: 'fa', markerColor: 'darkblue' }),
+        park: L.AwesomeMarkers.icon({ icon: 'tree', prefix: 'fa', markerColor: 'darkgreen' })
+      },
+      wishlist: {
+        city: L.AwesomeMarkers.icon({ icon: 'city', prefix: 'fa', markerColor: 'blue' }),
+        park: L.AwesomeMarkers.icon({ icon: 'tree', prefix: 'fa', markerColor: 'green' })
+      }
+    };
+
+    // 1) Create the four layer groups
+    const layerGroups = {
+      'visited-city':  L.layerGroup(),
+      'visited-park':  L.layerGroup(),
+      'wishlist-city': L.layerGroup(),
+      'wishlist-park': L.layerGroup(),
+    };
+
+    // 2) Populate each group
+    function addMarkers(list, category) {
+      list.forEach(item => {
+        const key = `${category}-${item.type}`;
+        const marker = L.marker(item.coords, { icon: icons[category][item.type] })
+          .bindPopup(`<strong>${item.name}</strong>`);
+        layerGroups[key].addLayer(marker);
+      });
+    }
+    addMarkers(visited,  'visited');
+    addMarkers(wishlist, 'wishlist');
+
+    // 3) Add all groups to map by default
+    Object.values(layerGroups).forEach(group => group.addTo(map));
+
+    // 4) Fit map to all points
+    const allCoords = [...visited, ...wishlist].map(p => p.coords);
+    if (allCoords.length) {
+      map.fitBounds(allCoords, { padding: [40, 40] });
+    }
+
+    // 5) Legend click handling
+    document.querySelectorAll('.legend-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const key = item.dataset.group;
+        const group = layerGroups[key];
+        if (map.hasLayer(group)) {
+          map.removeLayer(group);
+          item.classList.add('inactive');
+        } else {
+          map.addLayer(group);
+          item.classList.remove('inactive');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
