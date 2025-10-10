@@ -24,8 +24,10 @@ short_bio_text_justify: false
 short_bio: >-
   <p>
     I am a final-year PhD candidate in Computer Science at the University of Kansas, advised by <a href="https://ittc.ku.edu/~fli/" target="_blank" rel="noopener noreferrer">Dr. Fengjun Li</a> and <a href="https://www.ittc.ku.edu/~bluo/" target="_blank" rel="noopener noreferrer">Dr. Bo Luo</a>. 
-    My research interest lies in system security for modern machine-learning back-end systems and user-centric scenarios.
-    I focus on advanced sensor spoofing attacks and defenses in these platforms, especially human-imperceptible and legitimate user–interaction–driven signals. 
+    My research interests include:
+    <br>• Security in AI/ML: Adversarial Machine Learning, Prompt Injection Attacks
+    <br>• Responsible AI: AI Misinformation and Misuse
+    <br>• Security in Mobile Operating Systems: Covert Channels, Side Channels, Logic Bombs
   </p>
   <p>
     Before joining KU, I received my B.Eng and M.Eng in Beihang University, supervised by Prof. Xiaxiao Wang. I also worked in the Institute of Information Engineering (IIE), Chinese Academy of Sciences, after graduation.
