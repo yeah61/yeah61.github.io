@@ -25,9 +25,9 @@ short_bio: >-
   <p>
     I am a final-year PhD candidate in Computer Science at the University of Kansas, advised by <a href="https://ittc.ku.edu/~fli/" target="_blank" rel="noopener noreferrer">Dr. Fengjun Li</a> and <a href="https://www.ittc.ku.edu/~bluo/" target="_blank" rel="noopener noreferrer">Dr. Bo Luo</a>. 
     My research interests include:
-    <br>• Trustworthy and privacy-preserving machine learning: Adversarial machine learning, Prompt injection attacks, AI misinformation and misuse
-    <br>• CPS/Mobile security and privacy: Covert channels, side Channels, Logic bombs
-    <br>• Communication security: NFC security, Optical fiber communication security, UAV navigation and control-link security
+    <br>• Trustworthy and privacy-preserving ML/AI: Adversarial ML; Prompt injection; AI misinformation and misuse
+    <br>• CPS/Mobile security and privacy: Covert channels; Side channels; Logic bombs
+    <br>• Communication security: NFC security; Optical fiber communication security; UAV navigation and control-link security
   </p>
   <p>
     Before joining KU, I received my B.Eng. and M.Eng. degrees from Beihang University, where I was advised by Prof. Xiaxiao Wang. 
