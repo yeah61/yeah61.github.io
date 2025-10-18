@@ -58,8 +58,12 @@
                 <hr />
                 <div class="row">
                     <div class="col">
-                        <a class="pr-3 no-break" href="mailto:{{ site.data.profile.email | encode_email }}">
-                            <i class="fas fa-at"></i> <span class="email-text">{{ site.data.profile.email | replace: "@", "(at)" }}</span>
+                        <a class="pr-3 no-break" href="mailto:{{ site.data.profile.email_primary | encode_email }}">
+                          <i class="fas fa-at"></i> <span class="email-text">{{ site.data.profile.email_primary | replace: "@", "(at)" }}</span>
+                        </a>
+
+                        <a class="pr-3 no-break" href="mailto:{{ site.data.profile.email_secondary | encode_email }}">
+                          <i class="fas fa-at"></i> <span class="email-text">{{ site.data.profile.email_secondary | replace: "@", "(at)" }}</span>
                         </a>
 
                         {% if site.data.profile.gscholar %}
