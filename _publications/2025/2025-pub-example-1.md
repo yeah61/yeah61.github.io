@@ -1,6 +1,6 @@
 ---
 title:          "Beyond Conventional Triggers: Auto-Contextualized Covert Triggers for Android Logic Bombs"
-date:           2025/12/2 00:01:00 +0800
+date:           2025/12/17 00:01:00 +0800
 selected:       true
 pub:            "Network and Distributed System Security Symposium (NDSS)"
 # pub_pre:        "Submitted to "
@@ -19,5 +19,6 @@ links:
   Paper: https://yewang.site/assets/NDSS26%20Auto-Contextualized%20Covert%20Triggers%20for%20Android%20Logic%20Bombs.pdf
   # Unsplash: https://unsplash.com/photos/sliced-in-half-pineapple--_PLJZmHZzk
 ---
+
 
 
