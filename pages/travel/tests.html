@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vibration Test</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 24px; }
+    button { font-size: 18px; padding: 14px 18px; margin: 8px 0; width: 100%; }
+    .row { display: flex; gap: 12px; }
+    .row button { width: 100%; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 14px; margin-top: 14px; }
+    code { background: #f6f6f6; padding: 2px 6px; border-radius: 6px; }
+    .muted { color: #555; font-size: 14px; }
+    #log { white-space: pre-wrap; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <h2>Vibration Test</h2>
+  <p class="muted">
+    Uses <code>navigator.vibrate()</code>. Best on Android Chrome. If nothing happens, see tips below.
+  </p>
+
+  <div class="card">
+    <div class="row">
+      <button id="btnShort">Vibrate 200ms</button>
+      <button id="btnStop">Stop</button>
+    </div>
+
+    <button id="btnPattern">Pattern (100, 80, 120, 80, 200)</button>
+
+    <label class="muted" for="ms">Custom duration (ms):</label>
+    <input id="ms" type="number" inputmode="numeric" min="1" max="10000" value="500"
+           style="width:100%; font-size:18px; padding:10px; margin:8px 0;" />
+    <button id="btnCustom">Vibrate custom</button>
+  </div>
+
+  <div class="card">
+    <b>Status</b>
+    <div id="status" class="muted"></div>
+    <hr style="border:none;border-top:1px solid #eee;margin:10px 0;">
+    <b>Log</b>
+    <div id="log"></div>
+  </div>
+
+  <div class="card muted">
+    <b>Tips if it doesn’t vibrate</b>
+    <ul>
+      <li>Try Android Chrome, not iOS Safari (often unsupported).</li>
+      <li>If you opened via <code>file://</code>, it may be blocked. Serve it via HTTPS or <code>localhost</code>.</li>
+      <li>Make sure the phone’s vibration/haptics are enabled (not in silent/Do Not Disturb restrictions).</li>
+    </ul>
+  </div>
+
+  <script>
+    const statusEl = document.getElementById('status');
+    const logEl = document.getElementById('log');
+
+    function log(msg) {
+      const t = new Date().toLocaleTimeString();
+      logEl.textContent = `[${t}] ${msg}\n` + logEl.textContent;
+    }
+
+    function supported() {
+      return typeof navigator !== "undefined" && typeof navigator.vibrate === "function";
+    }
+
+    function updateStatus() {
+      const isSecure = window.isSecureContext;
+      statusEl.textContent =
+        `vibrate(): ${supported() ? "supported" : "NOT supported"} | ` +
+        `secureContext: ${isSecure ? "yes" : "no"} | ` +
+        `protocol: ${location.protocol}`;
+      log(`Status: supported=${supported()}, secureContext=${isSecure}, protocol=${location.protocol}`);
+    }
+
+    function doVibrate(pattern) {
+      if (!supported()) {
+        log("navigator.vibrate is not available on this browser/device.");
+        alert("Vibration API not supported on this browser/device.");
+        return;
+      }
+      const ok = navigator.vibrate(pattern);
+      log(`vibrate(${JSON.stringify(pattern)}) -> ${ok}`);
+      if (!ok) {
+        log("Browser returned false (may be blocked by policy or not allowed in this context).");
+      }
+    }
+
+    document.getElementById('btnShort').addEventListener('click', () => doVibrate(200));
+    document.getElementById('btnStop').addEventListener('click', () => doVibrate(0));
+    document.getElementById('btnPattern').addEventListener('click', () => doVibrate([100, 80, 120, 80, 200]));
+    document.getElementById('btnCustom').addEventListener('click', () => {
+      const ms = Number(document.getElementById('ms').value || 0);
+      if (!Number.isFinite(ms) || ms <= 0) {
+        alert("Please enter a positive number of milliseconds.");
+        return;
+      }
+      doVibrate(Math.min(ms, 10000));
+    });
+
+    updateStatus();
+  </script>
+</body>
+</html>
