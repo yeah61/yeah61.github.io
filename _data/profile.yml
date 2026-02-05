@@ -26,7 +26,7 @@ short_bio: >-
     I am a final-year PhD candidate in Computer Science at the University of Kansas, advised by <a href="https://ittc.ku.edu/~fli/" target="_blank" rel="noopener noreferrer">Dr. Fengjun Li</a> and <a href="https://www.ittc.ku.edu/~bluo/" target="_blank" rel="noopener noreferrer">Dr. Bo Luo</a>. 
     My research has been a continuous journey to understand how security connects sensing, communication, and artificial intelligence across the digital and physical worlds.
     My research interests include:
-    <br style="line-height: 0.6;">
+    <br style="line-height: 0.3;">
     <br>• Trustworthy and privacy-preserving ML/AI: Adversarial ML; Prompt injection; AI misinformation and misuse.
     <br>• CPS/Mobile security and privacy: Covert and side channels; Sensor-driven adversarial perception; Privacy protection.
     <br>• Communication security: NFC; Optical fiber communication; UAV navigation and control-link.
