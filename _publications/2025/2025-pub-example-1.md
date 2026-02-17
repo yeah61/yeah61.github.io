@@ -16,9 +16,10 @@ authors:
   - Bo Luo
   - Fengjun Li
 links:
-  Paper: https://yewang.site/assets/NDSS26%20Auto-Contextualized%20Covert%20Triggers%20for%20Android%20Logic%20Bombs.pdf
+  Paper: https://www.ndss-symposium.org/wp-content/uploads/2026-f348-paper.pdf
   # Unsplash: https://unsplash.com/photos/sliced-in-half-pineapple--_PLJZmHZzk
 ---
+
 
 
 
