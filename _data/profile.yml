@@ -26,7 +26,7 @@ short_bio: >-
     I am a final-year PhD candidate in Computer Science at the University of Kansas, advised by <a href="https://ittc.ku.edu/~fli/" target="_blank" rel="noopener noreferrer">Dr. Fengjun Li</a> and <a href="https://www.ittc.ku.edu/~bluo/" target="_blank" rel="noopener noreferrer">Dr. Bo Luo</a>. 
     My research primarily focuses on Physical AI systems and their security. Specifically, I investigate both offensive and defensive techniques for IoT, CPS, and AI-enabled systems.
     My research interests include:
-    <br style="line-height: 0.3;">
+    <br style="line-height: 0.1;">
     <br>• Trustworthy and privacy-preserving ML/AI: Adversarial ML; Prompt injection; AI misinformation and misuse.
     <br>• Physical AI: IoT/CPS; Mobile; Wireless Systems; Side and Covert channels
     <br>• Communication security: NFC; Optical fiber communication; GPS spoofing.
