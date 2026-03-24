@@ -13,5 +13,6 @@ date: 2020-01-12 00:01:00 +0800
         <li> Table Tennis — Mixed Doubles Champion, Fourth Research Laboratory, IIE, CAS  </li>
         <li> Swimming </li>
         <li> Volunteer for 2008 Beĳing Olympic Games </li>
+        <li> Volunteer for FIFA World Cup 2026 </li>
     </p>
 </div>
