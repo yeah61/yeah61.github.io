@@ -17,7 +17,7 @@ authors:
   - Fengjun Li
 links:
   Paper: https://www.ndss-symposium.org/wp-content/uploads/2026-f348-paper.pdf
-  # Unsplash: https://unsplash.com/photos/sliced-in-half-pineapple--_PLJZmHZzk
+  Slides: https://www.ndss-symposium.org/wp-content/uploads/f0348-wang-slides.pdf
 ---
 
 
