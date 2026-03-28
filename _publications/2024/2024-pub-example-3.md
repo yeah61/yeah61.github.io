@@ -19,5 +19,6 @@ authors:
   - Fengjun Li
 links:
   Paper: https://dl.acm.org/doi/pdf/10.1145/3658644.3670382
-  # Unsplash: https://unsplash.com/photos/sliced-in-half-pineapple--_PLJZmHZzk
+  Slides: https://kuscholarworks.ku.edu/server/api/core/bitstreams/72bb2a2b-913b-484e-b8dd-8636d68172d3/content
+  Code: https://github.com/LaserFR/LaserFR
 ---
