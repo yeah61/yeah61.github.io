@@ -1,7 +1,7 @@
 ---
 title:          "Poster: Ethics of Computer Security and Privacy Research Current Status and Trends from a Data Perspective"
 date:           2023-11-15 00:01:00 +0800
-selected:       true
+selected:       false
 pub:            "Proceedings of the 2023 ACM SIGSAC Conference on Computer and Communications Security"
 pub_date:       "2023"
 abstract: >-
