@@ -1,7 +1,7 @@
 ---
 title:          "Poster: A Novel Fully Sensor-driven Attack Chain."
 date:           2025/12/2 00:01:00 +0800
-selected:       true
+selected:       false
 pub:            "Annual Computer Security Applications Conference (ACSAC)."
 # pub_pre:        "Submitted to "
 # pub_post:       'Accepted.'
