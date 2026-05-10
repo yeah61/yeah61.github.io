@@ -1,5 +1,5 @@
 ---
-title:          "Beyond Conventional Triggers: Auto-Contextualized Covert Triggers for Android Logic Bombs"
+title:          "[ICICS 2026]: Beyond Conventional Triggers: Auto-Contextualized Covert Triggers for Android Logic Bombs"
 date:           2025/12/17 00:01:00 +0800
 selected:       true
 pub:            "Network and Distributed System Security Symposium (NDSS)"
@@ -9,7 +9,7 @@ pub:            "Network and Distributed System Security Symposium (NDSS)"
 pub_date:       "2026"
 #semantic_scholar_id: 204e3073870fae3d05bcbc2f6a8e263d9b72e776  # use this to retrieve citation count
 abstract: >-
-    In this paper, we present SensorBomb, a logic-bomb framework that violates this assumption by auto-contextualizing triggers within an app’s legitimate sensor usage, actuator behaviors, and functional context, using onboard sensor–actuator covert channels and dynamically adapted trigger patterns to evade analysis, fuzzing, anomaly detection, and user suspicion. 
+    In this paper, we present SensorBomb, a logic-bomb framework that leverages auto-contextualizing triggers within an app’s legitimate sensor usage, actuator behaviors, and functional context, using onboard sensor–actuator covert channels and dynamically adapted trigger patterns to evade analysis, fuzzing, anomaly detection, and user suspicion. 
 cover:          /assets/images/covers/sensor.png
 authors:
   - Ye Wang
