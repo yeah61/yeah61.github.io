@@ -1,5 +1,5 @@
 ---
-title:          "[ICICS 2026]: Beyond Conventional Triggers: Auto-Contextualized Covert Triggers for Android Logic Bombs"
+title:          "Beyond Conventional Triggers: Auto-Contextualized Covert Triggers for Android Logic Bombs"
 date:           2025/12/17 00:01:00 +0800
 selected:       true
 pub:            "Network and Distributed System Security Symposium (NDSS)"
