@@ -19,6 +19,6 @@ authors:
   - Fengjun Li
   - Bo Luo
 links:
-  # Paper: https://www.ndss-symposium.org/wp-content/uploads/2026-f348-paper.pdf
+  Paper: https://arxiv.org/pdf/2607.20564
   # Slides: https://www.ndss-symposium.org/wp-content/uploads/f0348-wang-slides.pdf
 ---
