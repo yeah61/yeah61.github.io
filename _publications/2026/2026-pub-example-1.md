@@ -1,5 +1,5 @@
 ---
-title:          " Side Meets Covert Channels: A Practical Fully Sensor-Driven Attack Chain."
+title:          " When Side Channels Meet Covert Channels: A Practical Fully Sensor-Driven Attack Chain."
 date:           2026/5/1 00:01:00 +0800
 selected:       true
 pub:            " International Conference on Information and Communications Security (ICICS) "
