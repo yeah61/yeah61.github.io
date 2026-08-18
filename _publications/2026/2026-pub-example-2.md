@@ -20,5 +20,6 @@ authors:
   - Bo Luo
 links:
   Paper: https://arxiv.org/pdf/2607.20564
+  Code: https://github.com/LiangqinRen/PhantomSeal
   # Slides: https://www.ndss-symposium.org/wp-content/uploads/f0348-wang-slides.pdf
 ---
