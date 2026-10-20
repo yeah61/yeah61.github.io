@@ -18,5 +18,6 @@ authors:
   - Fengjun Li
 links:
   Paper: assets/Wang_AttackChain_ICICS2026.pdf
+  Springer Nature: https://link.springer.com/chapter/10.1007/978-981-92-6857-3_13
   # Slides: https://www.ndss-symposium.org/wp-content/uploads/f0348-wang-slides.pdf
 ---
