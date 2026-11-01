@@ -23,12 +23,11 @@ orcid: 0009-0002-0450-8939
 short_bio_text_justify: false
 short_bio: >-
  <p>
-    I am a final-year PhD candidate in Computer Science at the University of Kansas, advised by <a href="https://ittc.ku.edu/~fli/" target="_blank" rel="noopener noreferrer">Dr. Fengjun Li</a> and <a href="https://www.ittc.ku.edu/~bluo/" target="_blank" rel="noopener noreferrer">Dr. Bo Luo</a>. 
-    My research primarily focuses on Physical AI systems and their security. Specifically, I investigate both offensive and defensive techniques for mobile, CPS, and AI-enabled systems.
+    I received my Ph.D. in Computer Science from the University of Kansas, advised by <a href="https://ittc.ku.edu/~fli/" target="_blank" rel="noopener noreferrer">Dr. Fengjun Li</a> and <a href="https://www.ittc.ku.edu/~bluo/" target="_blank" rel="noopener noreferrer">Dr. Bo Luo</a>. 
+    My research primarily focuses on Physical AI systems and their security. 
     My research interests include:
-    <br>• Trustworthy ML/AI: Adversarial ML; Prompt injection; AI misinformation and misuse.
-    <br>• Physical AI: IoT/CPS; Mobile; Wireless Systems; Side and Covert channels
-    <br>• Communication security: NFC; Optical fiber communication; GPS spoofing.
+    <br>• Trustworthy Physical AI: Embodied agent security; Adversarial multimodal sensing; Robot and UAV security.
+    <br>• Physical AI: IoT/CPS; Mobile; wireless sensing; Side and Covert channels
   </p>
   <p>
     Before joining KU, I received my B.S. and M.Eng. degrees from Beihang University. 
@@ -44,36 +43,37 @@ education:
   logo: /assets/images/badges/KUMarks_Jayhawk.png
   position: >- 
     Department of Electrical Engineering and Computer Science <br/>
-    Ph.D. Candidate in Computer Science
-  date: Jan. 2020 - present
+    Ph.D. in Computer Science <br/>
+    Advisor: Prof. Fengjun Li and Prof. Bo Luo
+  date: 2020 - 2026
 - name: Beihang University
   logo: /assets/images/badges/beihang.png
   position: >- 
     School of Instrumentation Science and Optoelectronic Engineering <br/>
     M.Eng. in Optical Engineering <br/>
     Advisor: Prof. Xiaxiao Wang
-  date: Sep. 2011 - Mar. 2014
+  date: 2011 - 2014
 - name: Beihang University
   logo: /assets/images/badges/beihang.png
   position: >- 
     School of Instrumentation Science and Optoelectronic Engineering <br/>
     B.S. in Electronic Engineering <br/>
     Advisor: Prof. Zhongyi Chu
-  date: Sep. 2007 - Jul. 2011
+  date: 2007 - 2011
 
 experience:
 - name: Institute for Information Science (I2S), University of Kansas(KU)
   logo: /assets/images/badges/KUMarks_Jayhawk.png
   position: Graduate Research Assistant
-  date: Jan. 2020 - present
+  date: 2020 - 2026
 - name: Institute of Information Engineering (IIE), Chinese Academy of Sciences (CAS)
   logo: /assets/images/badges/iie.png
   position: Assistant Research Fellow
-  date: Mar. 2014 - Dec. 2019
+  date: 2014 - 2019
 - name: Institute of Optoelectronics Technology, Beihang University
   logo: /assets/images/badges/beihang.png
   position: Graduate Research Assistant
-  date: Sep. 2011 - Mar. 2014
+  date: 2011 - 2014
 
 teaching:
 - name: EECS 569 - Computer Forensics
