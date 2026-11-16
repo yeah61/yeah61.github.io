@@ -19,7 +19,7 @@ authors:
   - Fengjun Li
   - Bo Luo
 links:
-  Paper: https://arxiv.org/pdf/2607.20564
+  Paper: https://dl.acm.org/doi/10.1145/3830454.3832581
   Code: https://github.com/LiangqinRen/PhantomSeal
   # Slides: https://www.ndss-symposium.org/wp-content/uploads/f0348-wang-slides.pdf
 ---
