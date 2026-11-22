@@ -3,13 +3,13 @@ secondary_name: ""
 navbar_name: "Ye Wang (王野)"
 
 positions:
-- logo: /assets/images/badges/KUMarks_Jayhawk.png  # Logo is optional
-  name: University of Kansas
+- logo: /assets/images/badges/ASU.png  # Logo is optional
+  name: Arizona State University
 # - logo: /assets/images/badges/iie.png  # Logo is optional
 #   name: Institute of Information Engineering (IIE), CAS 
 
 email_primary: "yewang758@gmail.com"
-email_secondary: "yeah_wong@ku.edu"
+email_secondary: "ye_wang@asu.edu"
 cv_link: /assets/CV_Ye.pdf
 gscholar: xWuMT2kAAAAJ  # This is an example, replace it with your own Google Scholar ID
 github: yeah61
@@ -23,20 +23,20 @@ orcid: 0009-0002-0450-8939
 short_bio_text_justify: false
 short_bio: >-
  <p>
-    I received my Ph.D. in Computer Science from the University of Kansas, advised by <a href="https://ittc.ku.edu/~fli/" target="_blank" rel="noopener noreferrer">Dr. Fengjun Li</a> and <a href="https://www.ittc.ku.edu/~bluo/" target="_blank" rel="noopener noreferrer">Dr. Bo Luo</a>. 
+    I am a Postdoctoral Scholar at Arizona State University, supervised by Prof. Yanchao Zhang <a href="https://search.asu.edu/profile/1620062" target="_blank" rel="noopener noreferrer">. I received my Ph.D. in Computer Science from the University of Kansas, advised by <a href="https://ittc.ku.edu/~fli/" target="_blank" rel="noopener noreferrer">Dr. Fengjun Li</a> and <a href="https://www.ittc.ku.edu/~bluo/" target="_blank" rel="noopener noreferrer">Dr. Bo Luo</a>. 
     My research primarily focuses on Physical AI systems and their security. 
     My research interests include:
-    <br>• Trustworthy Physical AI: Embodied agent security; Adversarial multimodal sensing; Robot and UAV security.
-    <br>• Physical AI: IoT/CPS; Mobile; wireless sensing; Side and Covert channels
+    <br>• Trustworthy Physical AI: Embodied AI agent security; Adversarial multimodal sensing; Robot and UAV security.
+    <br>• Security and Privacy of IoT, Mobile, and Cyber-Physical Systems: Mobile and Android Security; Cyber-physical and automotive system security: 
   </p>
   <p>
-    Before joining KU, I received my B.S. and M.Eng. degrees from Beihang University. 
+    I received my B.S. and M.Eng. degrees from Beihang University. 
     After graduation, I worked as a full-time research scientist at the Institute of Information Engineering, Chinese Academy of Sciences.
   </p>
 
 portrait_url: /assets/images/photos/profile.jpeg
 portrait_caption: >-
-  Welcome to hover your mouse here.
+  Hello there.
 
 education:
 - name: University of Kansas
@@ -62,7 +62,11 @@ education:
   date: 2007 - 2011
 
 experience:
-- name: Institute for Information Science (I2S), University of Kansas(KU)
+- name: Ira. Fulton Schools of Engineering, Arizona State University (ASU)
+  logo: /assets/images/badges/ASU.png
+  position: Postdoctoral Scholar
+  date: 2026 - present
+- name: Institute for Information Science (I2S), University of Kansas (KU)
   logo: /assets/images/badges/KUMarks_Jayhawk.png
   position: Graduate Research Assistant
   date: 2020 - 2026
@@ -70,7 +74,7 @@ experience:
   logo: /assets/images/badges/iie.png
   position: Assistant Research Fellow
   date: 2014 - 2019
-- name: Institute of Optoelectronics Technology, Beihang University
+- name: Institute of Optoelectronics Technology, Beihang University (BUAA)
   logo: /assets/images/badges/beihang.png
   position: Graduate Research Assistant
   date: 2011 - 2014
@@ -86,6 +90,8 @@ teaching:
   date: Spring 2025
 
 awards:
+- name: Distinguished Artifact Award  - ACM CCS
+  date: 2026
 - name: NDSS Fellow (1 of 24 worldwide) - Internet Society
   date: 2026
 - name: Doctoral Student Research Fund Award (30 annually) - KU
